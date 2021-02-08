@@ -1,0 +1,50 @@
+{
+  "name": "quotesApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "buildTs": "tsc",
+    "android": "react-native run-android",
+    "android-dev": "adb reverse tcp:8081 tcp:8081 && react-native run-android",
+    "ios": "react-native run-ios",
+    "iosSE": "react-native run-ios --simulator=\"iPhone SE\"",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "android:assembleRelease": "cd ./android && ./gradlew bumperVersionMinor && ./gradlew assembleRelease && open ./app/build/outputs ",
+    "fastFixIOS": "cd ios && rm -rf Podfile.lock && pod install && cd ../",
+    "fastFixAndroid": "cd android &&./gradlew clean && cd ../",
+    "clearAll": "rm -rf node_modules && watchman watch-del-all && npm install",
+    "cacheClean": "watchman watch-del-all && sudo npm cache clean --force",
+    "cleanStart": "npm start --reset-cache"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@types/jest": "^25.2.3",
+    "@types/react-native": "^0.63.2",
+    "@types/react-test-renderer": "^16.9.2",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
