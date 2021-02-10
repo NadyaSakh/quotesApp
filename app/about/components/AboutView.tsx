@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { TabActions } from '@react-navigation/native';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import { colors } from "../../res/colors";
 import { useNavigation } from "@react-navigation/native";
@@ -12,7 +13,9 @@ const AboutView = (): ReactElement => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const onSeeQuotesPress = (): void => {
-    navigation.navigate('Quotes')
+    const jumpToAction = TabActions.jumpTo('Quotes');
+
+    navigation.dispatch(jumpToAction);
   };
 
   return (
