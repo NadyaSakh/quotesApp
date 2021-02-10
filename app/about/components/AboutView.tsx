@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import { TabActions } from '@react-navigation/native';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import { colors } from "../../res/colors";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/types";
-import { INFO_TEXT } from "../../common/constants";
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { colors } from '../../res/colors';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../navigation/types';
+import { INFO_TEXT } from '../../common/constants';
 
 const { width } = Dimensions.get('window');
 
@@ -30,7 +30,7 @@ const AboutView = (): ReactElement => {
         <Text style={styles.buttonText}>Просмотреть котировки</Text>
       </TouchableOpacity>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   text: {
     backgroundColor: 'transparent',
-    fontWeight: '800',
+    fontWeight: '500',
     fontSize: 16,
     lineHeight: 24,
     color: colors.black,
