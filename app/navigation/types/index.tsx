@@ -1,5 +1,13 @@
-export type  RootStackParamList = {
+export type AboutStackParamsList = {
   About: undefined;
+}
+
+export type QuotesStackParamsList = {
   Quotes: undefined;
-  LaunchScreen: undefined;
+}
+
+export type  RootStackParamList = AboutStackParamsList &
+  QuotesStackParamsList & {
+    LaunchScreen: undefined;
+    Tabs: undefined;
 };
