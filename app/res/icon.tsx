@@ -31,6 +31,24 @@ const InfoIcon = (focused: boolean): ReactElement => {
   />
 };
 
+export const AboutMenuIcon = (): ReactElement => {
+  return <Icon
+    style={styles.icon}
+    fill={colors.dark}
+    name='book-outline'
+  />
+};
+
+export const QuotesMenuIcon = (): ReactElement => {
+  return (
+    <Icon
+      name="trending-up-outline"
+      style={styles.icon}
+      fill={colors.dark}
+    />
+  );
+};
+
 export const quotesIcon = ({ focused }: IconProps): React.ReactElement => QuotesIcon(focused);
 
 export const infoIcon = ({focused}: IconProps): ReactElement => InfoIcon(focused);

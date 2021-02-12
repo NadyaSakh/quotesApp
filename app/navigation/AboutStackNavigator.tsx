@@ -2,10 +2,10 @@ import * as React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { AboutStackParamsList } from "./types";
 import { ReactElement } from "react";
-import Quotes from "../quotes/containers/Quotes";
 import { StyleSheet } from "react-native";
 import { colors } from "../res/colors";
 import About from "../about/containers/About";
+import QuotesButton from "../common/components/QuotesButton";
 
 const AboutStack = createStackNavigator<AboutStackParamsList>();
 
@@ -15,17 +15,9 @@ const AboutStackNavigator = (): ReactElement => {
     title: 'О приложении',
     headerTitleStyle: styles.headerTitleStyle,
     headerStyle: styles.headerStyle,
-    headerRight: undefined,
-    headerLeft: undefined
-  };
-
-  const quotesOptions = {
-    headerShown: true,
-    title: 'Котировки',
-    headerTitleStyle: styles.headerTitleStyle,
-    headerStyle: styles.headerStyle,
-    headerRight: undefined,
-    headerLeft: undefined
+    headerRight: QuotesButton,
+    headerLeft: undefined,
+    headerTitleAlign: 'center' as const
   };
 
   return (
@@ -34,11 +26,6 @@ const AboutStackNavigator = (): ReactElement => {
         name="About"
         component={About}
         options={aboutOptions}
-      />
-      <AboutStack.Screen
-        name="Quotes"
-        component={Quotes}
-        options={quotesOptions}
       />
     </AboutStack.Navigator>
   );

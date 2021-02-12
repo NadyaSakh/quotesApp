@@ -5,6 +5,7 @@ import { ReactElement } from "react";
 import Quotes from "../quotes/containers/Quotes";
 import { StyleSheet } from "react-native";
 import { colors } from "../res/colors";
+import AboutButton from "../common/components/AboutButton";
 
 const QuotesStack = createStackNavigator<QuotesStackParamsList>();
 
@@ -14,8 +15,9 @@ const QuotesStackNavigator = (): ReactElement => {
     title: 'Котировки',
     headerTitleStyle: styles.headerTitleStyle,
     headerStyle: styles.headerStyle,
-    headerRight: undefined,
-    headerLeft: undefined
+    headerRight: AboutButton,
+    headerLeft: undefined,
+    headerTitleAlign: 'center' as const
   };
 
   return (
