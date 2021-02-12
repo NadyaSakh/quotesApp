@@ -26,21 +26,15 @@ const Quotes = (): ReactElement => {
     let timerId: NodeJS.Timeout = initialTimerId;
 
       navigation.addListener('focus', () => {
-      console.log("FOCUS");
       setLoading(true);
 
       timerId = setInterval(() => {
         getQuotesList();
-        console.log("REFRESHED");
       }, 5000);
-
-      console.log("TimerID", timerId);
     });
 
     const unsubscribe = navigation.addListener('blur', () => {
-      console.log("BLUR");
       clearInterval(timerId);
-      console.log("DEL_TIMER_ID", timerId);
     });
 
     return unsubscribe;
