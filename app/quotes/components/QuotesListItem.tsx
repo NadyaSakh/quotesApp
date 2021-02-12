@@ -60,8 +60,13 @@ const styles = StyleSheet.create({
   },
   nameContainer: {
     flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: colors.white
+    paddingVertical: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: colors.blue
   },
   text: {
     fontWeight: '500',
@@ -82,8 +87,7 @@ const styles = StyleSheet.create({
   nameText: {
     backgroundColor: 'transparent',
     fontWeight: 'bold',
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 15,
     color: colors.black,
     letterSpacing: 0.2,
     textAlign: 'left'
