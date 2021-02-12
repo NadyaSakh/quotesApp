@@ -1,5 +1,6 @@
 import { fetchData } from "./index";
 import { HTTPMethod } from "../common/constants";
+import Config from "react-native-config";
 
 
 type OwnProps = {
@@ -9,8 +10,7 @@ type OwnProps = {
 export const getQuotesFetch = async <T,>({
   urlBase
 }: OwnProps): Promise<T> => {
-  const QUOTES_HOST_URL = 'https://poloniex.com/';
-  const fullUrl = QUOTES_HOST_URL + urlBase;
+  const fullUrl = Config.QUOTES_HOST_URL + urlBase;
 
   try {
     const responseJSON = (await fetchData({
