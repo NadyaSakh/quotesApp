@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "buildTs": "tsc",
-    "android": "react-native run-android",
+    "android": "npx react-native run-android",
     "android-dev": "adb reverse tcp:8081 tcp:8081 && react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "npx react-native run-ios",
     "iosSE": "react-native run-ios --simulator=\"iPhone SE\"",
-    "start": "react-native start",
+    "start": "npx react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "android:assembleRelease": "cd ./android && ./gradlew bumperVersionMinor && ./gradlew assembleRelease && open ./app/build/outputs ",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@eva-design/eva": "^2.0.0",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.2.8",
     "@react-navigation/native": "^5.9.2",

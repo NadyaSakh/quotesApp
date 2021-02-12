@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
   text: {
     backgroundColor: 'transparent',
     fontWeight: 'bold',
-    fontSize: 28,
+    fontSize: 34,
     color: colors.white,
-    letterSpacing: 0.5,
+    letterSpacing: 3,
     textAlign: 'center'
   },
 });

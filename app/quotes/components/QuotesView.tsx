@@ -1,15 +1,45 @@
 import React, { ReactElement } from 'react';
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  View
+} from "react-native";
 import { colors } from "../../res/colors";
 
+import { QuotesListView } from "./QutesListView";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/types";
+import { ErrorView } from "./ErrorView";
+
 const { width } = Dimensions.get('window');
-// 1.	Элемент навигации, позволяющий перейти на экран О приложении
-// 2.	Таблицу, содержащую котировки с биржи poloniex, обновляемые в фоне по таймеру.
-// В ячейке показывать имя тикера, last, highestBid и percentChange.
-const QuotesView = (): ReactElement => {
+
+type OwnProps = {
+  refreshing: boolean;
+}
+
+type StateProps = {
+  quotesIdxList: number[];
+  error: string | undefined;
+}
+
+
+const QuotesView = ({
+  refreshing,
+}: OwnProps): ReactElement => {
+  const { quotesIdxList, error }: StateProps = useSelector(
+    ({ quotes }: RootState) => ({
+      quotesIdxList: quotes.quotesIdxList,
+      error: quotes.error
+    })
+  );
+
   return (
     <View style={styles.container}>
-      <Text>Котировки</Text>
+      <ErrorView error={error}/>
+      <QuotesListView
+        refreshing={refreshing}
+        quotesIdsList={quotesIdxList}
+      />
     </View>
   )
 };
@@ -19,19 +49,10 @@ const styles = StyleSheet.create({
     flex: 1,
     width,
     backgroundColor: colors.white,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
     alignItems: 'center'
-  },
-  text: {
-    backgroundColor: 'transparent',
-    fontWeight: '800',
-    fontSize: 16,
-    lineHeight: 24,
-    color: colors.black,
-    letterSpacing: 0.2,
-    textAlign: 'center'
-  },
+  }
 });
 
 export default QuotesView;
